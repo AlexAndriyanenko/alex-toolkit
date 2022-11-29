@@ -12,18 +12,17 @@ module.exports = {
     extensions: [".js", ".ts", ".tsx", ".css"],
     alias: {
       root: __dirname,
-    }
+    },
   },
   devServer: {
     host: "localhost",
-    port: 9000,
+    port: 9999,
     historyApiFallback: true,
-    open: true
   },
   plugins: [
     new HTMLWebpackPlugin({
       template: "public/index.html",
-    })
+    }),
   ],
   module: {
     rules: [
@@ -36,17 +35,33 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: "style-loader",
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               modules: true,
-              sourceMap: true
-            }
-          }
-        ]
-      }
-    ]
-  }
-}
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "@svgr/webpack",
+            options: {
+              svgoConfig: {
+                plugins: {
+                  removeViewBox: false,
+                },
+              },
+            },
+          },
+          "file-loader",
+        ],
+      },
+    ],
+  },
+};
