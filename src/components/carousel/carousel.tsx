@@ -22,6 +22,7 @@ export interface CarouselProps {
   slidesGap?: number;
   animationTime?: number;
   showArrows?: boolean;
+  onChange?: (id: Nullable<string>) => void;
 }
 
 export const Carousel = memo<CarouselProps>(
@@ -39,6 +40,7 @@ export const Carousel = memo<CarouselProps>(
     slidesGap = 40,
     animationTime = 0.5,
     showArrows = true,
+    onChange,
   }: CarouselProps) => {
     const listRef = useRef<HTMLDivElement>(null);
     const prevXRef = useRef(0);
@@ -78,6 +80,8 @@ export const Carousel = memo<CarouselProps>(
             : `translateY(${pixelsToMove}px)`,
         transition: `transform ${animationTime}s`,
       });
+
+      onChange?.(current);
     }, [current]);
 
     const handlePrev = () => {

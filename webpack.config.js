@@ -12,6 +12,12 @@ module.exports = {
     extensions: [".js", ".ts", ".tsx", ".css"],
     alias: {
       root: __dirname,
+      components: path.resolve(__dirname, "../src/components"),
+      stories: path.resolve(__dirname, "../src/stories"),
+      utils: path.resolve(__dirname, "../src/utils"),
+      assets: path.resolve(__dirname, "../src/assets"),
+      hooks: path.resolve(__dirname, "../src/hooks"),
+      models: path.resolve(__dirname, "../src/models"),
     },
   },
   devServer: {

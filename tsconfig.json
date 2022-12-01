@@ -21,6 +21,13 @@
     "emitDecoratorMetadata": true,
     "noImplicitReturns": false,
     "strictPropertyInitialization": false,
+    "paths": {
+      "components": "./src/components",
+      "stories": "./src/stories",
+      "hooks": "./src/hooks",
+      "utils": "./src/utils",
+      "assets": "./src/assets"
+    }
   },
   "include": ["./src"]
 }
