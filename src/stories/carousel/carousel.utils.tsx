@@ -10,7 +10,7 @@ export const generateSlides = () => {
     const obj: CarouselSlideType = {
       id: `slide-${i}`,
       render: ({ id, className }) => (
-        <div id={id} className={className}>
+        <div id={id} className={className} data-testid={`carousel-slide-${i}`}>
           {id}
         </div>
       ),

@@ -98,6 +98,9 @@ export const Carousel = memo<CarouselProps>(
       if (currentIndex === -1 || currentIndex === lastIndex) return;
 
       const nextIndex = currentIndex + 1;
+
+      console.log("NEXT");
+
       setCurrent(ids[nextIndex]);
     };
 
@@ -168,12 +171,19 @@ export const Carousel = memo<CarouselProps>(
 
     if (!slides.length) return null;
 
+    console.log("CURRENT", current);
+
     return (
-      <div className={clsx(styles.container, styles[direction], containerClassName)}>
+      <div
+        className={clsx(styles.container, styles[direction], containerClassName)}
+        data-testid="carousel"
+        data-current={current}
+      >
         {showArrows && (
           <button
             className={clsx(styles.nav, styles.prev, arrowClassName, prevClassName)}
             onClick={handlePrev}
+            data-testid="carousel-prev-btn"
           >
             <AngleDownSVG />
           </button>
@@ -211,6 +221,7 @@ export const Carousel = memo<CarouselProps>(
           <button
             className={clsx(styles.nav, styles.next, arrowClassName, nextClassName)}
             onClick={handleNext}
+            data-testid="carousel-next-btn"
           >
             <AngleDownSVG />
           </button>
