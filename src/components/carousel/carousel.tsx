@@ -99,8 +99,6 @@ export const Carousel = memo<CarouselProps>(
 
       const nextIndex = currentIndex + 1;
 
-      console.log("NEXT");
-
       setCurrent(ids[nextIndex]);
     };
 
@@ -170,8 +168,6 @@ export const Carousel = memo<CarouselProps>(
     };
 
     if (!slides.length) return null;
-
-    console.log("CURRENT", current);
 
     return (
       <div
